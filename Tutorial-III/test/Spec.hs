@@ -23,14 +23,25 @@ tests = [ testGroup "\nTutorial 03 Tests\n"
 insertTests :: TF.Test
 insertTests
  = testGroup "\nPart 1 - Insertions\n"
-    [ testCase "What?" (1+1  @?= (3::Int))
+    [ testCase "Insert into Empty" 
+         (binsert (42::Int) Empty  @?= Node Empty 42 Empty),
+      testCase "Insert into Node -- Equal"  
+         (binsert (42::Int) (Node Empty 42 Empty) @?= (Node Empty 42 Empty)),
+      testCase "Insert into Node -- Lesser"  
+         (binsert (42::Int) (Node Empty 99 Empty) @?= (Node (Node Empty 42 Empty) 99 Empty)),
+      testCase "Insert into Node -- Greater"
+         (binsert (99::Int) (Node Empty 42 Empty) @?= (Node Empty 42 (Node Empty 99 Empty)))
     ]
 
 lookupTests :: TF.Test
 lookupTests
  = testGroup "\nPart 2 - Lookups\n"
-    [ testCase "Where?" (2+2  @?= (5::Int))
-    ]
+   [
+      testCase "Lookup -- Empty"
+         (blookup (42::Int) Empty @?= False),
+      testCase "Lookup -- Left" 
+         (blookup (42::Int) (Node (Node Empty 42 Empty) 99 Empty) @?= True)
+   ]
 
 transposeTests :: TF.Test
 transposeTests
