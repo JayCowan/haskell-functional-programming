@@ -35,7 +35,7 @@ STRATEGY Induction xs :: List
     SHOW
       product ((x:xs)++ys)   ==   product (x:xs) * product ys
 
-    STRATEGY ReduceAll
+    STRATEGY ReduceBoth
        LHS
        product ((x:xs)++ys)
        = DEF ++.2
@@ -47,7 +47,10 @@ STRATEGY Induction xs :: List
 
        RHS
        product (x:xs) * product ys
-
+       = DEF product.2
+       (x * product xs) * product ys
+       = LAW mul_assoc
+       x * (product xs * product ys)
 
     QED STEP
 
