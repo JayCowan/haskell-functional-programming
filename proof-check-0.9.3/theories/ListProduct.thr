@@ -13,8 +13,17 @@ STRATEGY Induction xs :: List
     BASE []
         product ([]++ys)   ==   product [] * product ys
 
-    STRATEGY ReduceAll
-        product ([]++ys)   ==   product [] * product ys
+    STRATEGY ReduceBoth
+    LHS
+    product ([]++ys)
+    = DEF ++.1
+    product ys
+    RHS
+    product [] * product ys
+    = DEF product.1
+    1 * product ys
+    = LAW mul_unit_left
+    product ys
 
     QED BASE
 
