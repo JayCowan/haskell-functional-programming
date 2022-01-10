@@ -45,8 +45,15 @@ ins k d (Branch left right key val)
 
 -- Implement:
 lkp :: (Monad m, Ord k) => BinTree k d -> k -> m d
-lkp _ _ = error "lkp NYI"
-
+lkp Empty _ = fail "Empty"
+lkp (Branch left right key val) k
+  | k == key = return val
+  | k > key = lkp right k
+  | k < key = lkp left k
+lkp (Leaf key val) k
+  | k == key = return val
+  | k /= key = fail "Not Found"
+  
 -- Part 3 : Tail-Recursive Statistics
 
 {-
@@ -73,15 +80,23 @@ twobirdsonestone listsum sumofsquares len
 -}
 getLengthAndSums :: [Double] -> (Int,Double,Double)
 getLengthAndSums ds = getLASs init1 init2 init3 ds
-init1 = error "init1 not yet defined"
-init2 = error "init2 not yet defined"
-init3 = error "init3 not yet defined"
+init1 :: Int
+init2 :: Double
+init3 :: Double
+
+init1 = 0
+init2 = 0.0
+init3 = 0.0
 
 {-
   Implement the following tail-recursive  helper function
 -}
 getLASs :: Int -> Double -> Double -> [Double] -> (Int,Double,Double)
-getLASs _ _ _ _ = error "getLASs NYI"
+getLASs initLen initNum initSqr xs = (len, num, sqr)
+  where 
+    len = initLen + length xs
+    num = initNum + sum xs
+    sqr = initSqr + sum [x*x | x<-xs]
 
 -- Final Hint: how would you use a while loop to do this?
 --   (assuming that the [Double] was an array of double)
