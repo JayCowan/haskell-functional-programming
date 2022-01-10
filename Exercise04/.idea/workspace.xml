@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c6ee75a-c17b-4582-9fdb-ca01e292508f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../proof-check-0.9.3/theories/SumTwoLists.thr" beforeDir="false" afterPath="$PROJECT_DIR$/../proof-check-0.9.3/theories/SumTwoLists.thr" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

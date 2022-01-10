@@ -29,9 +29,9 @@ STRATEGY ReduceBoth
     RHS
     sum (42:99:[]) + sum []
     = DEF sum.2
-    42 sum (99:[]) + sum []
+    42 + sum (99:[]) + sum []
     = DEF sum.2
-    42 sum (99 + sum ([])) + sum []
+    42 + (99 + sum ([])) + sum []
     = DEF sum.1
     42 + (99 + 0) + sum []
     = DEF sum.1
