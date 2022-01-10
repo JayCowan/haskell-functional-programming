@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c6ee75a-c17b-4582-9fdb-ca01e292508f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../proof-check-0.9.3/theories/ListProduct.thr" beforeDir="false" afterPath="$PROJECT_DIR$/../proof-check-0.9.3/theories/ListProduct.thr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex04.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex04.hs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641751289481</updated>
-      <workItem from="1641751291499" duration="791000" />
+      <workItem from="1641751291499" duration="1460000" />
     </task>
     <servers />
   </component>

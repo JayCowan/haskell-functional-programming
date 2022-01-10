@@ -2,9 +2,9 @@
 module Ex04 where
 
 name, idno, username :: String
-name      =  "Myself, Me"  -- replace with your name
-idno      =  "01234567"    -- replace with your student id
-username  =  "memyselfi"   -- replace with your TCD username
+name      =  "Cowan, James"  -- replace with your name
+idno      =  "19309917"    -- replace with your student id
+username  =  "cowanja"   -- replace with your TCD username
 
 declaration -- do not modify this
  = unlines
@@ -31,7 +31,15 @@ data BinTree k d
 
 -- Implement:
 ins :: Ord k => k -> d -> BinTree k d -> BinTree k d
-ins _ _ _  = error "ins NYI"
+ins k d Empty = Leaf k d
+ins k d (Leaf key val)
+  | key == k = Leaf k d
+  | key < k = Branch Empty (Leaf k d) key val
+  | key > k = Branch (Leaf k d) Empty key val
+ins k d (Branch left right key val)
+  | key == k = Branch left right key val
+  | key < k = Branch left (ins k d right) key val
+  | key > k = Branch (ins k d left) right key val
 
 -- Part 2 : Tree Lookup -------------------------------
 
