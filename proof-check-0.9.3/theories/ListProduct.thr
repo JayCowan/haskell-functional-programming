@@ -36,8 +36,18 @@ STRATEGY Induction xs :: List
       product ((x:xs)++ys)   ==   product (x:xs) * product ys
 
     STRATEGY ReduceAll
+       LHS
+       product ((x:xs)++ys)
+       = DEF ++.2
+       product (x:(xs ++ ys))
+       = DEF product.2
+       x * (product (xs++ys))
+       = INDHYP l2r @ product
+       x * (product xs * product ys)
 
-        product ((x:xs)++ys)   ==   product (x:xs) * product ys
+       RHS
+       product (x:xs) * product ys
+
 
     QED STEP
 
